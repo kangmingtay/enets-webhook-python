@@ -9,7 +9,8 @@ log = app.logger
 
 @app.route('/', methods=['POST'])
 def webhook():
-    """This method handles the http requests for the Dialogflow webhook
+    """
+    This method handles the http requests for the Dialogflow webhook
     """
     req = request.get_json(silent=True, force=True)
     try:
@@ -31,5 +32,8 @@ def webhook():
 
 def find_error_code(req):
     code = req['queryResult']['parameters']['number']
-    if code == '00000':
-        return 'Payment Successful'
+    json_data = open(error_code.txt).read()
+    return json_data[code]
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
