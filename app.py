@@ -2,7 +2,7 @@ import json
 
 from flask import Flask, request, make_response, jsonify
 
-from forecast import Forecast, validate_params
+#from forecast import Forecast, validate_params
 
 app = Flask(__name__)
 log = app.logger
@@ -11,8 +11,6 @@ log = app.logger
 @app.route('/', methods=['POST'])
 def webhook():
     """This method handles the http requests for the Dialogflow webhook
-
-    This is meant to be used in conjunction with the weather Dialogflow agent
     """
     req = request.get_json(silent=True, force=True)
     try:
