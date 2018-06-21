@@ -29,10 +29,9 @@ def webhook():
 
     return make_response(jsonify({'fulfillmentText': res}))
 
-
 def find_error_code(req):
     code = req['queryResult']['parameters']['number']
-    json_data = open("error_code.txt", "r")
+    json_data = open("./error_code.txt").read()
     return json_data[code]
 
 if __name__ == '__main__':
