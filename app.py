@@ -17,7 +17,7 @@ def webhook():
     except AttributeError:
         return 'json error'
 
-    if action == 'ErrorCodes.ErrorCodes-custom':
+    if action == 'error_code':
         res = find_error_code(req)
 
     else:
